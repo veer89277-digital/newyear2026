@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year Watch</title>
+
+<style>
+  body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:black;
+    color:#00eaff;
+    font-family: 'Poppins', sans-serif;
+    text-align:center;
+  }
+
+  h1{
+    font-size:50px;
+    color:#ffde59;
+    text-shadow:0 0 20px #ffde59;
+    margin-bottom:20px;
+  }
+
+  .clock{
+    font-size:80px;
+    font-weight:bold;
+    letter-spacing:4px;
+    text-shadow:0 0 20px #00eaff;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>🎉 Happy New Year 2026 🎉</h1>
+
+<div class="clock" id="clock"></div>
+
+<script>
+  function updateClock(){
+    let now = new Date();
+    let h = String(now.getHours()).padStart(2,'0');
+    let m = String(now.getMinutes()).padStart(2,'0');
+    let s = String(now.getSeconds()).padStart(2,'0');
+    document.getElementById("clock").textContent = `${h}:${m}:${s}`;
+  }
+
+  setInterval(updateClock, 1000);
+  updateClock();
+</script>
+
+</body>
+</html>
