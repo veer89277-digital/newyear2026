@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy New Year Watch</title>
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:radial-gradient(circle at top, #1b1b3a, #000);
+      font-family: "Poppins", system-ui, sans-serif;
+      color:#fff;
+      overflow:hidden;
+    }
+
+    .container{
+      text-align:center;
+      padding:20px;
+      width:100%;
+      max-width:480px;
+    }
+
+    .title{
+      font-size:32px;
+      font-weight:700;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:10px;
+      text-shadow:0 0 10px #ffd54f, 0 0 25px #ffb300;
+    }
+
+    .subtitle{
+      font-size:14px;
+      opacity:0.8;
+      margin-bottom:18px;
+    }
+
+    .clock{
+      font-size:40px;
+      font-weight:700;
+      letter-spacing:4px;
+      margin-bottom:18px;
+      text-shadow:0 0 12px #00e5ff;
+    }
+
+    .photo-wrap{
+      margin:0 auto 18px;
+      width:260px;
+      height:360px;
+      border-radius:24px;
+      padding:4px;
+      background:linear-gradient(135deg,#ffea00,#ff4081,#00e5ff);
+      box-shadow:0 0 25px rgba(0,0,0,0.7);
+    }
+
+    .photo-wrap img{
+      width:100%;
+      height:100%;
+      border-radius:20px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .btn{
+      margin-top:8px;
+      padding:10px 22px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      background:linear-gradient(135deg,#ff4081,#ffea00);
+      color:#311b92;
+      box-shadow:0 0 12px rgba(255,193,7,0.7);
+      transition:transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px) scale(1.02);
+      box-shadow:0 0 18px rgba(255,193,7,1);
+      opacity:0.95;
+    }
+
+    .footer-text{
+      font-size:12px;
+      margin-top:10px;
+      opacity:0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">🎉 Happy New Year 2026 🎉</div>
+    <div class="subtitle">Digital Creator GKP • New Year Special Watch</div>
+
+    <div class="clock" id="clock">00:00:00</div>
+
+    <div class="photo-wrap">
+      <img src="my.jpg" alt="My New Year Photo">
+    </div>
+
+    <button class="btn" onclick="speakWish()">Play New Year Wish</button>
+
+    <div class="footer-text">
+      Made with ❤️ by Digital Creator GKP
+    </div>
+
+  </div>
+
+  <script>
+    // CLOCK FUNCTION
+    function updateClock(){
+      const now = new Date();
+      let h = String(now.getHours()).padStart(2,'0');
+      let m = String(now.getMinutes()).padStart(2,'0');
+      let s = String(now.getSeconds()).padStart(2,'0');
+      document.getElementById("clock").textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // TEXT TO SPEECH (No MP3 needed)
+    function speakWish(){
+      let text = "Happy New Year 2026. Digital Creator GKP ki taraf se aapko bahut bahut shubhkaamnayein!";
+      
+      let speech = new SpeechSynthesisUtterance(text);
+      speech.rate = 1;
+      speech.pitch = 1;
+      speech.volume = 1;
+
+      window.speechSynthesis.speak(speech);
+    }
+  </script>
+
+</body>
+</html>
